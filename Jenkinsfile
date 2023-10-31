@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage("Checkout") {
             steps {
-                git branch: "main", url: "https://github.com/ailis-mc/lbg-vat-calculator/tree/main"
+                git branch: "main", url: "https://github.com/ailis-mc/lbg-vat-calculator.git"
 
             }
         }
@@ -13,7 +13,7 @@ pipeline {
                 scannerHome = tool 'sonarqube'
             }
             steps {
-                withSonarQubeEnv("sonar-qube-ailis") {
+                withSonarQubeEnv("sonar-qube-1") {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
